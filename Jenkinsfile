@@ -35,7 +35,6 @@ pipeline {
     
     post {
         always {
-            cleanWs()
             echo 'yeah always runs right'
         }
         success {
