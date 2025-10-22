@@ -59,6 +59,7 @@ pipeline {
             }
         }
         stage('script checking') {
+            steps {
             script {
                 def buildStatus = "SUCCESS"
                     if (buildStatus == "SUCCESS") {
@@ -69,6 +70,7 @@ pipeline {
             }
         }
     
+    }
     }
     post {
         always {
