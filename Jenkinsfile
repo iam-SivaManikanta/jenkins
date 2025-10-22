@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 --verson'
+                sh 'python3 --version'
             }
         }
     }
