@@ -19,7 +19,7 @@ pipeline {
                 success {
                     echo 'Clone Successful'
                     echo "${env.env} is ready"
-                    echo "Branch: ${env.BRANCH_NAME}, Build Number: ${env.BUILD_NUMBER}"
+                    echo "Branch: ${env.GIT_BRANCH}, Build Number: ${env.BUILD_NUMBER}"
                 }
                 failure {
                     echo 'clone not done'
