@@ -7,6 +7,14 @@ pipeline {
         git 'GIT-2.42.0'
         terraform 'Terraform-1.5.0'
     }
+
+    parameters {
+        string(name: 'ENV', defaultValue: 'dev', description: 'Select environment')
+        booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Deploy the app?')
+        choice(name: 'REGION', choices: ['us-east-1', 'us-west-2'], description: 'AWS Region')
+        password(name: 'SECRET', defaultValue: '', description: 'Enter secret key')
+        text(name: 'NOTES', defaultValue: '', description: 'Additional notes')
+    }
     
     environment {
         Name = "CSI"
@@ -41,8 +49,17 @@ pipeline {
                 sh 'terraform --version'
             }
         }
-    }
+        stage('Print Parameters') {
+            steps {
+                echo "Environment: ${params.ENV}"
+                echo "Deploy: ${params.DEPLOY}"
+                echo "Region: ${params.REGION}"
+                echo "Secret: ${params.SECRET}"
+                echo "Notes: ${params.NOTES}"
+            }
+        }
     
+    }
     post {
         always {
             echo 'yeah always runs right'
