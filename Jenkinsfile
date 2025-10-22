@@ -2,10 +2,15 @@ pipeline {
     agent{
         label 'linux'
     }
+
+    tools {
+        git 'GIT-2.42.0'
+        Terraform 'Terraform-1.5.0'
+    }
     
     environment {
         Name = "CSI"
-        env = "De"
+        env = "Dev"
         NEW_VER = '1.30'
     }
     
@@ -29,7 +34,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 --version'
+                sh 'git --version'
+                sh 'terraform --version'
             }
         }
     }
