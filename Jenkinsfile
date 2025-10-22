@@ -12,7 +12,7 @@ pipeline {
         stage('git clone'){
             steps {
                 retry(3) {
-                    git branch: 'master', url: 'https://github.com/iam-SivaManikanta/jenkins-freestyle-demo.git'
+                    git branch: 'master', url: 'https://github.com/iam-SivaManikanta/jenkins.git'
                 }
             }
             post {
