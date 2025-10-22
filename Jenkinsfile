@@ -5,7 +5,7 @@ pipeline {
 
     tools {
         git 'GIT-2.42.0'
-        Terraform 'Terraform-1.5.0'
+        terraform 'Terraform-1.5.0'
     }
     
     environment {
