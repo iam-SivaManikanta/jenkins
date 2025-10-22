@@ -6,6 +6,7 @@ pipeline {
     environment {
         Name = "CSI"
         env = "De"
+        NEW_VER = '1.30'
     }
     
     stages {
@@ -36,6 +37,7 @@ pipeline {
     post {
         always {
             echo 'yeah always runs right'
+            echo " The Version is ${env.NEW_VER} "
         }
         success {
             echo 'Yeah Success'
