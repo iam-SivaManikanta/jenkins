@@ -5,7 +5,7 @@ pipeline {
     
     environment {
         Name = "CSI"
-        env = "Dev"
+        env = "De"
     }
     
     stages {
