@@ -36,6 +36,9 @@ pipeline {
             steps {
                 sh 'git --version'
                 sh 'terraform --version'
+                sh 'echo $PATH'
+                sh 'which terraform'
+                sh 'terraform --version'
             }
         }
     }
