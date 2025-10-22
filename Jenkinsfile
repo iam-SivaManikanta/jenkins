@@ -58,6 +58,16 @@ pipeline {
                 echo "Notes: ${params.NOTES}"
             }
         }
+        stage('script checking') {
+            script {
+                def buildStatus = "SUCCESS"
+                    if (buildStatus == "SUCCESS") {
+                        echo "Build was successful!"
+                    } else {
+                        echo "Build failed!"
+                    }
+            }
+        }
     
     }
     post {
