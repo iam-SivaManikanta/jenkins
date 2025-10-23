@@ -40,6 +40,13 @@ pipeline {
                 }
             }
         }
+        stage('changing directory') {
+            steps {
+                dir('abc') {
+                    sh 'cat abc.py'
+                }
+            }
+        }
         stage('Test') {
             steps {
                 sh 'git --version'
