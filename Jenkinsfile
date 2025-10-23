@@ -42,7 +42,7 @@ pipeline {
         }
         stage('changing directory') {
             steps {
-                dir('abc') {
+                dir('Test') {
                     sh 'cat abc.py'
                 }
             }
