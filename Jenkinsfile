@@ -40,6 +40,19 @@ pipeline {
                 }
             }
         }
+        stage('Build') {
+            steps {
+                script {
+                    try {
+                        sh 'exit 1'  // simulate failure
+                    } catch (Exception e) {
+                        echo "Caught error: ${e}"
+                        // You can mark build as unstable instead of failure
+                        currentBuild.result = 'UNSTABLE'
+                    }
+                }
+            }
+        }
         stage('parallel execution') {
             parallel {
                 stage('changing directory') {
