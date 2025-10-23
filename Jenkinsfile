@@ -40,20 +40,24 @@ pipeline {
                 }
             }
         }
-        stage('changing directory') {
-            steps {
-                dir('Test') {
-                    sh 'cat abc.py'
+        stage('parallel execution') {
+            parallel {
+                stage('changing directory') {
+                    steps {
+                        dir('Test') {
+                            sh 'cat abc.py'
+                        }
+                    }
                 }
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'git --version'
-                sh 'terraform --version'
-                sh 'echo $PATH'
-                sh 'which terraform'
-                sh 'terraform --version'
+                stage('Test') {
+                    steps {
+                        sh 'git --version'
+                        sh 'terraform --version'
+                        sh 'echo $PATH'
+                        sh 'which terraform'
+                        sh 'terraform --version'
+                        }
+                }
             }
         }
         stage('Print Parameters') {
