@@ -50,6 +50,7 @@ pipeline {
         stage('parallel execution') {
             parallel {
                 stage('changing directory') {
+                    agent { docker 'python:3.12' }
                     steps {
                         dir('Test') {
                             sh 'cat abc.py'
