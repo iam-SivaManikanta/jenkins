@@ -46,6 +46,7 @@ pipeline {
                     sh 'exit 1' 
             }
         }
+        }
         stage('parallel execution') {
             parallel {
                 stage('changing directory') {
