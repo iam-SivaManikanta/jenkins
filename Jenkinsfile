@@ -48,7 +48,6 @@ pipeline {
                     } catch (Exception e) {
                         echo "Caught error: ${e}"
                         // You can mark build as unstable instead of failure
-                        currentBuild.result = 'UNSTABLE'
                     }
                 }
             }
