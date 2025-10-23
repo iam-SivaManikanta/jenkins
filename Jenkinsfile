@@ -43,12 +43,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    try {
-                        sh 'exit 1'  // simulate failure
-                    } catch (Exception e) {
-                        echo "Caught error: ${e}"
-                        // You can mark build as unstable instead of failure
-                    }
+                        sh 'exit 1'  // simulate failur
                 }
             }
         }
