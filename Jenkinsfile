@@ -42,9 +42,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                script {
-                        sh 'exit 1'  // simulate failur
-                }
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'exit 1' 
             }
         }
         stage('parallel execution') {
